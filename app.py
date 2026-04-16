@@ -106,21 +106,21 @@ elif "Device Price" in app_mode:
                                                        # Karbonn  ,BlackBerry ,OnePlus ,Microsoft ,Coolpad ,Google ,Infinix ])     
         os_map = {"Android": 0, "Others": 1, "Windows": 2, "iOS": 3}  #
         os = st.selectbox("Operating System", list(os_map.keys()))
-        screen_size = st.number_input("SCREEN SIZE OF THE DEVICE")
-        year = st.selectbox("Release Year", [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020])
+        screen_size = st.slider("SCREEN SIZE OF THE DEVICE " ,5 , 31 , 14 , help = " CM ")
+        year = st.selectbox("Release Year", [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 , 2021 , 2022 , 2023 , 2024 ])
 
     with c2:
         ram = st.selectbox("RAM (GB)", [1.0, 2.0, 3.0, 4.0, 6.0, 8.0, 12.0])
         internal = st.selectbox("Internal Memory (GB)", [8.0, 16.0, 32.0, 64.0, 128.0, 256.0, 512.0])
         battery = st.selectbox("Battery Capacity (mAh)", [2000.0, 3000.0, 4000.0, 5000.0])
-        weight = st.number_input("Weight of the device")
+        weight = st.slider("Weight of the device" , 70 , 855 , 140 , help = " weight in Gram ")
 
     with c3:
         rear = st.selectbox("Rear Camera (MP)", [5.0, 8.0, 12.0, 13.0, 16.0, 48.0])
         front = st.selectbox("Front Camera (MP)", [2.0, 5.0, 8.0, 16.0, 32.0])
         g4 = 1 if st.selectbox("4G Supported?", ["yes", "no"]) == "yes" else 0
         g5 = 1 if st.selectbox("5G Supported?", ["yes", "no"]) == "yes" else 0
-        days = st.slider("Days device used", 0 , 1865 , 365 , help = "enter 0 if device is brand new" )
+        days = st.slider("Days device used", 365 , 1865 , 365 , help = " enter the number of days device is used ")
 
     actual_new = st.number_input("Original New Price ($)", min_value=0.0, value=500.0)
 

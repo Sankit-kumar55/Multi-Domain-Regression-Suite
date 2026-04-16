@@ -98,21 +98,29 @@ elif "Device Price" in app_mode:
 
     c1, c2, c3 = st.columns(3)
     with c1:
-        brand = st.selectbox("Device Brand (Encoded)", list(range(34)), help="Select the brand code")
+        brand_map = {"Others" : 24 , "Samsung" : 27 , "Huawei" : 11 , "LG" : 14 , "Lenovo" : 16 ,  "ZTE" : 33 , "Xiaomi" : 32 , "Oppo" : 23 , "Asus" : 3, "Alcatel" : 10 , "Micromax" : 30 , "Vivo" : 18 ,"Honor" : 9 ,"HTC" : 1 , 
+                                                        "Nokia" : 20 ,"Motorola" : 21 ,"Sony" : 17 ,"Meizu" : 7 ,"Gionee" : 28 ,"Acer" : 0 ,"XOLO" : 31 ,"Panasonic" : 25 ,"Realme" : 26 ,"Apple" : 2 ,"Lava" : 29 ,"Celkon" : 15 ,"Spice" : 13 , 
+                                                        "Karbonn" : 22 ,"BlackBerry" : 6 ,"OnePlus" : 19 ,"Microsoft" : 4 ,"Coolpad" : 8 ,"Google" : 5 , "Infinix" : 12 }       
+        brand = st.selectbox("Device Brand ", list(brand_map.keys())) #[Others , Samsung , Huawei , LG ,Lenovo ,  ZTE , Xiaomi , Oppo , Asus , Alcatel , Micromax , Vivo  ,Honor ,HTC  , 
+                                                       # Nokia ,Motorola  ,Sony ,Meizu  ,Gionee  ,Acer  ,XOLO  ,Panasonic  ,Realme  ,Apple  ,Lava  ,Celkon  ,Spice  , 
+                                                       # Karbonn  ,BlackBerry ,OnePlus ,Microsoft ,Coolpad ,Google ,Infinix ])     
         os_map = {"Android": 0, "Others": 1, "Windows": 2, "iOS": 3}  #
         os = st.selectbox("Operating System", list(os_map.keys()))
+        screen_size = st.number_input("SCREEN SIZE OF THE DEVICE")
         year = st.selectbox("Release Year", [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020])
 
     with c2:
         ram = st.selectbox("RAM (GB)", [1.0, 2.0, 3.0, 4.0, 6.0, 8.0, 12.0])
         internal = st.selectbox("Internal Memory (GB)", [8.0, 16.0, 32.0, 64.0, 128.0, 256.0, 512.0])
         battery = st.selectbox("Battery Capacity (mAh)", [2000.0, 3000.0, 4000.0, 5000.0])
+        weight = st.number_input("Weight of the device")
 
     with c3:
         rear = st.selectbox("Rear Camera (MP)", [5.0, 8.0, 12.0, 13.0, 16.0, 48.0])
         front = st.selectbox("Front Camera (MP)", [2.0, 5.0, 8.0, 16.0, 32.0])
         g4 = 1 if st.selectbox("4G Supported?", ["yes", "no"]) == "yes" else 0
         g5 = 1 if st.selectbox("5G Supported?", ["yes", "no"]) == "yes" else 0
+        days = st.number_input(" appox number of device used  ENTER 0 IF DEVICE IS FIRST HAND (BRAND NEW)")
 
     actual_new = st.number_input("Original New Price ($)", min_value=0.0, value=500.0)
 
@@ -121,7 +129,7 @@ elif "Device Price" in app_mode:
             model = joblib.load('device_price.joblib')
             # Features: [brand, os, screen, 4g, 5g, rear, front, memory, ram, battery, weight, year, days, new_price]
             features = np.array(
-                [[brand, os_map[os], 6.0, g4, g5, rear, front, internal, ram, battery, 180.0, year, 365, actual_new]])
+                [[brand_map[brand], os_map[os], screen_size, g4, g5, rear, front, internal, ram, battery, weight, year, days , actual_new]])
             prediction = model.predict(features)[0]
 
             st.markdown(f"""

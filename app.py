@@ -154,12 +154,12 @@ elif "House Price Prediction" in app_mode:
         bath = st.selectbox("Bathrooms", [1, 2, 3, 4])
         floor = st.selectbox("Total Floors", [1, 2, 3])
         # House Mappings
-        bed_map = {1: 0, 2: 1, 3: 2, 4: 3, 5: 4}
-        bath_map = {1: 0, 2: 1, 3: 2, 4: 3}
-        floor_map = {1: 0, 2: 1, 3: 2}
+        #bed_map = {1: 0, 2: 1, 3: 2, 4: 3, 5: 4}
+        #bath_map = {1: 0, 2: 1, 3: 2, 4: 3}
+        #floor_map = {1: 0, 2: 1, 3: 2}
 
     with col2:
-        year_built = st.number_input("Year Built", 1990, 2026, 2018)
+        year_built = st.slider("Year Built", 1990, 2026, 2018)
         loc_map = {"Downtown": 0, "Rural": 1, "Suburban": 2, "Urban": 3}  #
         location = st.selectbox("Location", list(loc_map.keys()))
         cond_map = {"Excellent": 0, "Fair": 1, "Good": 2, "Poor": 3}  #
@@ -169,7 +169,7 @@ elif "House Price Prediction" in app_mode:
     if st.button("Predict Buying Price"):
         try:
             model = joblib.load('House_Price_Prediction.joblib')
-            features = np.array([[area, bed_map[bed], bath_map[bath], floor_map[floor], year_built, loc_map[location],
+            features = np.array([[area, bed, bath, floor, year_built, loc_map[location],
                                   cond_map[condition], garage]])
             prediction = model.predict(features)[0]
 

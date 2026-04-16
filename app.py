@@ -200,7 +200,7 @@ elif "House Rent Prediction" in app_mode:
         location = st.selectbox("Location", list(loc_map.keys()), key="rent_loc")
         cond_map = {"Excellent": 0, "Fair": 1, "Good": 2, "Poor": 3}  #
         condition = st.selectbox("Condition", list(cond_map.keys()), key="rent_cond")
-        garage = 1 if st.selectbox("Garage Available?", ["Yes", "No"], key="rent_gar") == "Yes" else 0
+        garage = 0 if st.selectbox("Garage Available?", ["Yes", "No"], key="rent_gar") == "Yes" else 1
 
     if st.button("Predict Monthly Rent"):
         try:

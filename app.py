@@ -120,7 +120,7 @@ elif "Device Price" in app_mode:
         front = st.selectbox("Front Camera (MP)", [2.0, 5.0, 8.0, 16.0, 32.0])
         g4 = 1 if st.selectbox("4G Supported?", ["yes", "no"]) == "yes" else 0
         g5 = 1 if st.selectbox("5G Supported?", ["yes", "no"]) == "yes" else 0
-        days = st.number_input(" appox number of days  device used  ENTER 0 IF DEVICE IS FIRST HAND (BRAND NEW)")
+        days = st.slider("Days device used", 0 , 1865 , 365 , help = "enter 0 if device is brand new" )
 
     actual_new = st.number_input("Original New Price ($)", min_value=0.0, value=500.0)
 

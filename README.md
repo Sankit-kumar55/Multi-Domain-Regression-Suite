@@ -31,5 +31,17 @@ A Machine Learning project collection containing 4 regression-based prediction s
 - Decision Tree Regressor
 
 ## ▶️ Run Project  
-deployed application link      https://multi-domain-regression-suite-h73qvedappesx23i8de5ix.streamlit.app/ 
+deployed application link      https://multi-domain-regression-suite-h73qvedappesx23i8de5ix.streamlit.app/   
+
+contributors
+Sankit Kumar.  2407370130055
+Sandip Kumar.  2407370130054
+Arpit Kumar.   2407370130023
+Sourya Pratap Singh.  2407370130061
+Suyash Maurya.  2407370130062
+Sahil Kumar. 2407370130052
+Pradeep Kumar. 2407370130043
+Shailesh Kumar. 2407370130057
+
+
 

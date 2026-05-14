@@ -50,7 +50,7 @@ app_mode = st.sidebar.selectbox("Choose a Model",
 # --- 1. SALARY PREDICTION ---
 if "Salary Prediction" in app_mode:
     st.title("💼 Salary Prediction System")
-    st.info("Input your professional details below to estimate your annual salary.")
+    st.info("Input your professional details below to estimate your monthly salary.")
 
     col1, col2 = st.columns(2)
     with col1:

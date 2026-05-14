@@ -44,7 +44,7 @@ st.markdown("""
 st.sidebar.title("🛠️ Control Panel")
 st.sidebar.markdown("Select the model you wish to use for prediction.")
 app_mode = st.sidebar.selectbox("Choose a Model",
-                                ["Salary Prediction 💼", "Device Price Prediction 📱", "House Price Prediction 🏠",
+                                ["Salary Prediction 💼", "Device Price Prediction 📱",
                                  "House Rent Prediction 🔑"])
 
 # --- 1. SALARY PREDICTION ---
